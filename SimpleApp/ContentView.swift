@@ -13,29 +13,58 @@ struct Movie: Identifiable, Hashable {
     let name, imageName: String
 }
 
-let movies: [[Movie]] = [
-    [.init(name: "Django", imageName: "Django"),
-     .init(name: "Club", imageName: "Club")],
-    [.init(name: "Godfather", imageName: "Godfather"),
-     .init(name: "CallMe", imageName: "Godfather")]
-]
+
 
 
 struct ContentView: View {
+    
+    let movies: [[Movie]] = [
+        [.init(name: "Django", imageName: "Django"),
+         .init(name: "Fight Club", imageName: "Club")],
+        [.init(name: "Call Me Your Name", imageName: "CallMe"),
+         .init(name: "Blade Runner", imageName: "Blade")],
+        [.init(name: "Django", imageName: "Django"),
+         .init(name: "Fight Club", imageName: "Club")],
+        [.init(name: "Call Me Your Name", imageName: "CallMe"),
+         .init(name: "Blade Runner", imageName: "Blade")]
+    ]
+    
+    
     var body: some View {
-        VStack {
-            ForEach(movies, id: \.self) { row in
-                HStack {
-                    ForEach (row) { movie in
-                        VStack {
-                            Image(movie.imageName)
+        ScrollView {
+            VStack  (spacing: 15){
+                Text("CinemaTickets")
+                    .font(.system(size: 23, weight: .bold))
+                ForEach(movies, id: \.self) { row in
+                    HStack {
+                        ForEach (row) { movie in
+                            VStack (spacing: 4) {
+                                Image(movie.imageName)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 170, height: 250)
+                                    .clipped()
+                                    .cornerRadius(10)
+                                Text(movie.name)
+                                Button(action: {
+                                    
+                                }) {
+                                    Text("Buy Tickets")
+                                        .padding(.horizontal, 40)
+                                        .padding(.vertical, 6)
+                                        .background(Color.red)
+                                        .foregroundColor(Color.white)
+                                    .cornerRadius(10)
+                                }
+                            }
                         }
-                        Text(movie.name)
                     }
-                }
 
+                }
+                Spacer()
             }
         }
+        .padding(.all, 15)
        
     }
 }
