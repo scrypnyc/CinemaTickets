@@ -33,34 +33,13 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geo in
             ScrollView {
-                VStack  (spacing: 45){
+                VStack  (spacing: 45) {
                     Text("CinemaTickets")
                         .font(.system(size: 23, weight: .semibold))
                     ForEach(self.movies, id: \.self) { row in
                         HStack (spacing: 15) {
                             ForEach (row) { movie in
-                                VStack (spacing: 4) {
-                                    Image(movie.imageName)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: (geo.size.width - 48) / 2, height: 250)
-                                        .clipped()
-                                        .cornerRadius(10)
-                                        .shadow(radius: 10)
-                                    Text(movie.name)
-                                        .font(.system(size: 14, weight: .bold))
-                                    Button(action: {
-                                        
-                                    }) {
-                                        Text("Buy Tickets")
-                                            .padding(.horizontal, 40)
-                                            .padding(.vertical, 6)
-                                            .background(Color.red)
-                                            .foregroundColor(Color.white)
-                                        .cornerRadius(10)
-                                        .shadow(radius: 10)
-                                    }
-                                }
+                                MovieView(movie: movie, size: geo.size)
                             }
                         }
                     }
@@ -69,7 +48,37 @@ struct ContentView: View {
             }
         }
 
-       
+    }
+}
+
+struct MovieView: View {
+    
+    let movie: Movie
+    let size: CGSize
+    
+    var body: some View {
+        VStack (spacing: 8) {
+            Image(movie.imageName)
+                .resizable()
+                .scaledToFill()
+                .frame(width: (size.width - 48) / 2, height: 250)
+                .clipped()
+                .cornerRadius(10)
+                .shadow(radius: 10)
+            Text(movie.name)
+                .font(.system(size: 14, weight: .bold))
+            Button(action: {
+                                                   
+            }) {
+                Text("Buy Tickets")
+                    .padding(.horizontal, 40)
+                    .padding(.vertical, 6)
+                    .background(Color.red)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(10)
+                    .shadow(radius: 10)
+                }
+        }
     }
 }
 
