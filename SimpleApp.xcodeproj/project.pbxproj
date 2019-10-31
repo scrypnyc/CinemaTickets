@@ -13,6 +13,7 @@
 		E50194FE236303F9007E5BB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E50194FD236303F9007E5BB2 /* Assets.xcassets */; };
 		E5019501236303F9007E5BB2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5019500236303F9007E5BB2 /* Preview Assets.xcassets */; };
 		E5019504236303F9007E5BB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5019502236303F9007E5BB2 /* LaunchScreen.storyboard */; };
+		E5786369236B29AB004C2F6F /* BuyTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5786368236B29AB004C2F6F /* BuyTicketsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E5019500236303F9007E5BB2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5019503236303F9007E5BB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5019505236303F9007E5BB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5786368236B29AB004C2F6F /* BuyTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTicketsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				E50194F7236303F6007E5BB2 /* AppDelegate.swift */,
 				E50194F9236303F6007E5BB2 /* SceneDelegate.swift */,
 				E50194FB236303F6007E5BB2 /* ContentView.swift */,
+				E5786368236B29AB004C2F6F /* BuyTicketsView.swift */,
 				E50194FD236303F9007E5BB2 /* Assets.xcassets */,
 				E5019502236303F9007E5BB2 /* LaunchScreen.storyboard */,
 				E5019505236303F9007E5BB2 /* Info.plist */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E50194F8236303F6007E5BB2 /* AppDelegate.swift in Sources */,
+				E5786369236B29AB004C2F6F /* BuyTicketsView.swift in Sources */,
 				E50194FA236303F6007E5BB2 /* SceneDelegate.swift in Sources */,
 				E50194FC236303F6007E5BB2 /* ContentView.swift in Sources */,
 			);
