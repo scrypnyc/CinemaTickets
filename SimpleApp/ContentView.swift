@@ -19,7 +19,7 @@ struct Movie: Identifiable, Hashable {
 struct ContentView: View {
     
     let movies: [[Movie]] = [
-        [.init(name: "Django", imageName: "Django"),
+        [.init(name: "Django Unchained", imageName: "Django"),
          .init(name: "Dunkirk", imageName: "Dunkirk")],
         [.init(name: "John Wick", imageName: "John"),
          .init(name: "Moonlight", imageName: "Moonlight")],
