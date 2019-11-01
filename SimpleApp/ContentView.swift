@@ -14,8 +14,6 @@ struct Movie: Identifiable, Hashable {
 }
 
 
-
-
 struct ContentView: View {
     
     let movies: [[Movie]] = [
@@ -38,8 +36,10 @@ struct ContentView: View {
                     .font(.system(size: 20, weight: .semibold))
                 }
                 ScrollView {
+                    
                     VStack  (spacing: 45) {
                         ForEach(self.movies, id: \.self) { row in
+                            
                             HStack (spacing: 14) {
                                 ForEach (row) { movie in
                                     MovieView(movie: movie, size: geo.size)
@@ -80,7 +80,7 @@ struct MovieView: View {
                     .foregroundColor(Color.white)
                     .cornerRadius(10)
 //                    .shadow(radius: 10)
-                }
+            }
         }
     }
 }

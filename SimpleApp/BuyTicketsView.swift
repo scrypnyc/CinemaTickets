@@ -19,11 +19,13 @@ struct BuyTicketsView: View {
                     Text("Buy Tickets")
                         .font(.system(size: 20, weight: .semibold))
                 }
+                
                 HStack (alignment: .top, spacing: 11) {
                     Image("Django")
                         .frame(width: 140, height: 200)
                         .cornerRadius(10)
 //                    .shadow(radius: 10)
+                    
                     VStack (alignment: .leading, spacing: 8) {
                         Text("Django Unchained")
                             .font(.system(size: 18, weight: .heavy))
@@ -54,6 +56,7 @@ struct BuyTicketsView: View {
                 }
                 VStack (alignment: .leading) {
                     HStack {
+                        
                         Text("Select Date")
                         Spacer()
                     }.padding(.leading, 16)
