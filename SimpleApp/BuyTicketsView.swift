@@ -79,12 +79,12 @@ struct BuyTicketsView: View {
                                 }, label: {
                                     VStack (spacing: 8) {
                                         Text("NOV")
-                                            .font(.system(size: 15, weith: .semibold))
+                                            .font(.system(size: 15, weight: .semibold))
                                             .foregroundColor(.gray)
                                         Text(day.day)
+                                            .font(.system(size: 14, weight: .bold))
                                         Text(day.dayOfWeek)
                                             .font(.system(size: 8))
-                                        
                                     }
                                     
                                 }).foregroundColor(.black)
