@@ -31,6 +31,7 @@ struct BuyTicketsView: View {
                 
                 HStack (alignment: .top, spacing: 11) {
                     Image("Django")
+                        .scaledToFill()
                         .frame(width: 140, height: 200)
                         .cornerRadius(10)
 //                    .shadow(radius: 10)
@@ -78,15 +79,23 @@ struct BuyTicketsView: View {
                                 }, label: {
                                     VStack (spacing: 8) {
                                         Text("NOV")
+                                            .font(.system(size: 15, weith: .semibold))
+                                            .foregroundColor(.gray)
                                         Text(day.day)
                                         Text(day.dayOfWeek)
+                                            .font(.system(size: 8))
                                         
                                     }
                                     
-                                }).frame(width: (geo.size.width - 6 * 16) / 5)
+                                }).foregroundColor(.black)
+                                .padding(.horizontal, 8)
+                                .border(Color.black)
+                                .frame(width: (geo.size.width - 6 * 12) / 5)
+                            
                             }
-                        }
-                    }
+                    }.padding(.horizontal, 12)
+                }
+                
                 Spacer()
             }
         }
