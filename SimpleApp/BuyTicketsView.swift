@@ -12,6 +12,15 @@ struct BuyTicketsView: View {
     
     let movie = Movie(name: "Django Unchained", imageName: "Django")
     
+    let topDays: [Day] = [
+    .init(month: "NOV", day: "09", dayOfWeek: "FRIDAY"),
+    .init(month: "NOV", day: "10", dayOfWeek: "SATURDAY"),
+    .init(month: "NOV", day: "11", dayOfWeek: "SUNDAY"),
+    .init(month: "NOV", day: "12", dayOfWeek: "MONDAY"),
+    .init(month: "NOV", day: "13", dayOfWeek: "TUESDAY"),
+
+    ]
+    
     var body: some View {
         GeometryReader { geo in
             VStack (spacing: 16) {
@@ -63,24 +72,35 @@ struct BuyTicketsView: View {
                     
                     // Buttons
                     HStack (spacing: 15) {
-                        ForEach(["09", "10", "11", "12", "13"], id: \.self) { day in
+                        ForEach(self.topDays) { day in
                             Button(action: {
                                             
                                 }, label: {
                                     VStack (spacing: 8) {
                                         Text("NOV")
-                                        Text(day)
+                                        Text(day.day)
+                                        Text(day.dayOfWeek)
+                                        
                                     }
                                     
                                 }).frame(width: (geo.size.width - 6 * 16) / 5)
                             }
                         }
                     }
-                
-            Spacer()
+                Spacer()
+            }
         }
     }
 }
+
+struct Day: Identifiable {
+    
+    let id = UUID()
+    let month, day, dayOfWeek: String
+    
+    
+}
+    
 
 struct BuyTicketsPreview: PreviewProvider {
     static var previews: some View {
@@ -88,4 +108,4 @@ struct BuyTicketsPreview: PreviewProvider {
         
         }
     }
-}
+
