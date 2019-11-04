@@ -18,7 +18,14 @@ struct BuyTicketsView: View {
     .init(month: "NOV", day: "11", dayOfWeek: "SUNDAY"),
     .init(month: "NOV", day: "12", dayOfWeek: "MONDAY"),
     .init(month: "NOV", day: "13", dayOfWeek: "TUESDAY"),
-
+    ]
+    
+    let middleDays: [Day] = [
+    .init(month: "NOV", day: "14", dayOfWeek: "WEDNESDAY"),
+    .init(month: "NOV", day: "15", dayOfWeek: "FRIDAY"),
+    .init(month: "NOV", day: "16", dayOfWeek: "SATURDAY"),
+    .init(month: "NOV", day: "17", dayOfWeek: "SUNDAY"),
+    .init(month: "NOV", day: "18", dayOfWeek: "MONDAY"),
     ]
     
     var body: some View {
@@ -31,7 +38,6 @@ struct BuyTicketsView: View {
                 
                 HStack (alignment: .top, spacing: 11) {
                     Image("Django")
-                        .scaledToFill()
                         .frame(width: 140, height: 200)
                         .cornerRadius(10)
 //                    .shadow(radius: 10)
@@ -64,42 +70,57 @@ struct BuyTicketsView: View {
                         }
                     }.padding(.top, 15)
                 }
-                VStack (alignment: .leading) {
+                VStack (alignment: .leading, spacing: 12) {
                     HStack {
-                        
                         Text("Select Date")
                         Spacer()
                     }.padding(.leading, 16)
                     
                     // Buttons
-                    HStack (spacing: 15) {
+                    HStack (spacing: 16) {
                         ForEach(self.topDays) { day in
-                            Button(action: {
-                                            
-                                }, label: {
-                                    VStack (spacing: 8) {
-                                        Text("NOV")
-                                            .font(.system(size: 15, weight: .semibold))
-                                            .foregroundColor(.gray)
-                                        Text(day.day)
-                                            .font(.system(size: 14, weight: .bold))
-                                        Text(day.dayOfWeek)
-                                            .font(.system(size: 8))
-                                    }
-                                    
-                                }).foregroundColor(.black)
-                                .padding(.horizontal, 8)
-                                .border(Color.black)
-                                .frame(width: (geo.size.width - 6 * 12) / 5)
-                            
+                            DayButton(day: day, size: geo.size)
                             }
-                    }.padding(.horizontal, 12)
+                    }.padding(.horizontal, 16)
+                    
+                    HStack (spacing: 16) {
+                        ForEach(self.middleDays) { day in
+                            DayButton(day: day, size: geo.size)
+                            }
+                    }.padding(.horizontal, 16)
                 }
                 
                 Spacer()
             }
         }
     }
+}
+
+struct DayButton: View {
+    
+    let day: Day
+    let size: CGSize
+    
+    var body: some View {
+        Button(action: {
+                    
+        }, label: {
+            VStack (spacing: 8) {
+                Text("NOV")
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundColor(.gray)
+                Text(day.day)
+                    .font(.system(size: 18, weight: .bold))
+                Text(day.dayOfWeek)
+                    .font(.system(size: 7, weight: .bold))
+            }.padding(.vertical, 8)
+            
+        }).foregroundColor(.black)
+            .padding(.horizontal, 2)
+            .frame(width: (size.width - 6 * 15) / 5)
+            .border(Color.black)
+    }
+    
 }
 
 struct Day: Identifiable {
