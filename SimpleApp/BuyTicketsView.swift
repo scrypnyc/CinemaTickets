@@ -50,7 +50,7 @@ struct BuyTicketsView: View {
                             Button(action: {
                                 
                             }, label: {
-                                Text("NOV 11 Friday")
+                                Text("NOV 11 SUNDAY")
                                     .font(.system(size: 14))
                                     .padding(.horizontal)
                                     .padding(.vertical, 6)
