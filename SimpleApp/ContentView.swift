@@ -67,7 +67,6 @@ struct MovieView: View {
                 .frame(width: (size.width - 48) / 2, height: 250)
                 .clipped()
                 .cornerRadius(10)
-//                .shadow(radius: 10)
             Text(movie.name)
                 .font(.system(size: 14, weight: .bold))
             Button(action: {
@@ -79,7 +78,6 @@ struct MovieView: View {
                     .background(Color.red)
                     .foregroundColor(Color.white)
                     .cornerRadius(10)
-//                    .shadow(radius: 10)
             }
         }
     }

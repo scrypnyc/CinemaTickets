@@ -40,12 +40,12 @@ struct BuyTicketsView: View {
                     Image("Django")
                         .frame(width: 140, height: 200)
                         .cornerRadius(10)
-//                    .shadow(radius: 10)
                     
                     VStack (alignment: .leading, spacing: 8) {
                         Text("Django Unchained")
                             .font(.system(size: 18, weight: .heavy))
                         Text("Drama | Western")
+                        
                         HStack {
                             Button(action: {
                                 
@@ -73,6 +73,7 @@ struct BuyTicketsView: View {
                 VStack (alignment: .leading, spacing: 12) {
                     HStack {
                         Text("Select Date")
+                        .font(.system(size: 18, weight: .semibold))
                         Spacer()
                     }.padding(.leading, 16)
                     
