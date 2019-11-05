@@ -96,6 +96,7 @@ struct BuyTicketsView: View {
     }
 }
 
+
 struct DayButton: View {
     
     let day: Day
@@ -120,14 +121,13 @@ struct DayButton: View {
             .frame(width: (size.width - 6 * 15) / 5)
             .border(Color.black)
     }
-    
 }
+
 
 struct Day: Identifiable {
     
     let id = UUID()
     let month, day, dayOfWeek: String
-    
     
 }
     
