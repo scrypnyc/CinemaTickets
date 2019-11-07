@@ -34,12 +34,11 @@ struct ContentView: View {
                 HStack {
                     Text("CinemaTickets")
                     .font(.system(size: 20, weight: .semibold))
-                }
+                }.padding(.top, 12)
+                
                 ScrollView {
-                    
                     VStack  (spacing: 45) {
                         ForEach(self.movies, id: \.self) { row in
-                            
                             HStack (spacing: 14) {
                                 ForEach (row) { movie in
                                     MovieView(movie: movie, size: geo.size)
@@ -59,6 +58,8 @@ struct MovieView: View {
     let movie: Movie
     let size: CGSize
     
+    @State private var showingBuyTicketsView = false
+    
     var body: some View {
         VStack (spacing: 8) {
             Image(movie.imageName)
@@ -70,7 +71,6 @@ struct MovieView: View {
             Text(movie.name)
                 .font(.system(size: 14, weight: .bold))
             Button(action: {
-                                                   
             }) {
                 Text("Buy Tickets")
                     .padding(.horizontal, 39)
@@ -88,3 +88,10 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+    
+
+//struct BuyTicketsPreview: PreviewProvider {
+//    static var previews: some View {
+//        BuyTicketsView()
+//    }
+//}

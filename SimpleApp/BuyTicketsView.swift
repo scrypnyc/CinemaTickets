@@ -28,19 +28,25 @@ struct BuyTicketsView: View {
     .init(month: "NOV", day: "18", dayOfWeek: "MONDAY"),
     ]
     
+    let lowDays: [Day] = [
+    .init(month: "NOV", day: "19", dayOfWeek: "TUESDAY"),
+    .init(month: "NOV", day: "20", dayOfWeek: "WEDNESDAY"),
+    ]
+    
+    
     var body: some View {
         GeometryReader { geo in
             VStack (spacing: 16) {
                 HStack {
                     Text("Buy Tickets")
                         .font(.system(size: 20, weight: .semibold))
-                }
+                }.padding(.top, 12)
                 
-                HStack (alignment: .top, spacing: 12) {
+                HStack (alignment: .top, spacing: 34) {
                     Image("Django")
-                        .frame(width: 140, height: 200)
-                        .cornerRadius(10)
-                    
+                        .resizable()
+                        .frame(width: 100, height: 140)
+                        .cornerRadius(12)
                     VStack (alignment: .leading, spacing: 8) {
                         Text("Django Unchained")
                             .font(.system(size: 18, weight: .heavy))
@@ -74,14 +80,14 @@ struct BuyTicketsView: View {
                                     .foregroundColor(.black)
                             })
                         }
-                    }.padding(.top, 17)
+                    }.padding(.top, 14)
                 }
                 VStack (alignment: .leading, spacing: 12) {
                     HStack {
                         Text("Select Date")
-                        .font(.system(size: 18, weight: .semibold))
+                        .font(.system(size: 16))
                         Spacer()
-                    }.padding(.leading, 16)
+                    }.padding(.leading, 27)
                     
                     // Buttons
                     HStack (spacing: 16) {
@@ -92,7 +98,7 @@ struct BuyTicketsView: View {
                                 self.selectedDay = d
                             })
                         }
-                    }.padding(.horizontal, 16)
+                    }.padding(.horizontal, 27)
                     
                     HStack (spacing: 16) {
                         ForEach(self.middleDays) { day in
@@ -102,7 +108,17 @@ struct BuyTicketsView: View {
                                 self.selectedDay = d
                             })
                         }
-                    }.padding(.horizontal, 16)
+                    }.padding(.horizontal, 27)
+                    
+                    HStack (spacing: 16) {
+                        ForEach(self.lowDays) { day in
+                            DayButton(day: day, size: geo.size,
+                                      selectedDay: self.selectedDay,
+                                      tapHandler: { (d) in
+                                self.selectedDay = d
+                            })
+                        }
+                    }.padding(.horizontal, 27)
                 }
                 
                 Spacer()
@@ -130,17 +146,19 @@ struct DayButton: View {
         }, label: {
             VStack (spacing: 8) {
                 Text("NOV")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundColor(.gray)
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundColor((self.selectedDay?.day != day.day) ? Color.gray : Color.white)
                 Text(day.day)
-                    .font(.system(size: 18, weight: .bold))
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundColor((self.selectedDay?.day != day.day) ? Color.black : Color.white)
                 Text(day.dayOfWeek)
                     .font(.system(size: 7, weight: .bold))
-            }.padding(.vertical, 8)
+                    .foregroundColor((self.selectedDay?.day != day.day) ? Color.black : Color.white)
+            }.padding(.vertical, 5)
             
         }).foregroundColor(.black)
             .padding(.horizontal, 2)
-            .frame(width: (size.width - 6 * 15) / 5)
+            .frame(width: (size.width - 6 * 16) / 5)
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(Color.gray, lineWidth: 1)
