@@ -36,7 +36,7 @@ struct BuyTicketsView: View {
                         .font(.system(size: 20, weight: .semibold))
                 }
                 
-                HStack (alignment: .top, spacing: 11) {
+                HStack (alignment: .top, spacing: 12) {
                     Image("Django")
                         .frame(width: 140, height: 200)
                         .cornerRadius(10)
@@ -51,7 +51,7 @@ struct BuyTicketsView: View {
                                 
                             }, label: {
                                 Text("NOV 11 SUNDAY")
-                                    .font(.system(size: 14))
+                                    .font(.system(size: 12))
                                     .padding(.horizontal)
                                     .padding(.vertical, 6)
                                     .overlay(
@@ -64,7 +64,7 @@ struct BuyTicketsView: View {
                                 
                             }, label: {
                                 Text("22:30")
-                                    .font(.system(size: 14))
+                                    .font(.system(size: 12))
                                     .padding(.horizontal)
                                     .padding(.vertical, 6)
                                     .overlay(
@@ -74,7 +74,7 @@ struct BuyTicketsView: View {
                                     .foregroundColor(.black)
                             })
                         }
-                    }.padding(.top, 15)
+                    }.padding(.top, 17)
                 }
                 VStack (alignment: .leading, spacing: 12) {
                     HStack {
@@ -86,14 +86,22 @@ struct BuyTicketsView: View {
                     // Buttons
                     HStack (spacing: 16) {
                         ForEach(self.topDays) { day in
-                            DayButton(day: day, size: geo.size)
-                            }
+                            DayButton(day: day, size: geo.size,
+                                      selectedDay: self.selectedDay,
+                                      tapHandler: { (d) in
+                                self.selectedDay = d
+                            })
+                        }
                     }.padding(.horizontal, 16)
                     
                     HStack (spacing: 16) {
                         ForEach(self.middleDays) { day in
-                            DayButton(day: day, size: geo.size)
-                            }
+                            DayButton(day: day, size: geo.size,
+                                      selectedDay: self.selectedDay,
+                                      tapHandler: { (d) in
+                                self.selectedDay = d
+                            })
+                        }
                     }.padding(.horizontal, 16)
                 }
                 
@@ -101,6 +109,8 @@ struct BuyTicketsView: View {
             }
         }
     }
+    
+    @State var selectedDay: Day?
 }
 
 
@@ -109,8 +119,13 @@ struct DayButton: View {
     let day: Day
     let size: CGSize
     
+    var selectedDay: Day?
+    
+    var tapHandler: ((Day) -> ())?
+    
     var body: some View {
         Button(action: {
+            self.tapHandler?(self.day)
                     
         }, label: {
             VStack (spacing: 8) {
@@ -130,6 +145,8 @@ struct DayButton: View {
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(Color.gray, lineWidth: 1)
         )
+            .background((self.selectedDay?.day == day.day) ? Color.red : Color.white)
+        .cornerRadius(12)
     }
 }
 
