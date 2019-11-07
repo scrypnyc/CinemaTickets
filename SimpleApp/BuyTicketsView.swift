@@ -54,7 +54,10 @@ struct BuyTicketsView: View {
                                     .font(.system(size: 14))
                                     .padding(.horizontal)
                                     .padding(.vertical, 6)
-                                    .border(Color.black)
+                                    .overlay(
+                                            RoundedRectangle(cornerRadius: 12)
+                                                .stroke(Color.gray, lineWidth: 1)
+                                    )
                                     .foregroundColor(.black)
                             })
                             Button(action: {
@@ -64,7 +67,10 @@ struct BuyTicketsView: View {
                                     .font(.system(size: 14))
                                     .padding(.horizontal)
                                     .padding(.vertical, 6)
-                                    .border(Color.black)
+                                    .overlay(
+                                            RoundedRectangle(cornerRadius: 12)
+                                                .stroke(Color.gray, lineWidth: 1)
+                                    )
                                     .foregroundColor(.black)
                             })
                         }
@@ -120,7 +126,10 @@ struct DayButton: View {
         }).foregroundColor(.black)
             .padding(.horizontal, 2)
             .frame(width: (size.width - 6 * 15) / 5)
-            .border(Color.black)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color.gray, lineWidth: 1)
+        )
     }
 }
 
